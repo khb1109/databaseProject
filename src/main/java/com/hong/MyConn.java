@@ -19,8 +19,6 @@ public class MyConn {
         try {
             connection = DriverManager.getConnection(url, ID, PW);
             st = connection.createStatement();
-            System.out.println("����Ϸ�");
-
         } catch (SQLException SQLex) {
             System.out.println("SQLException: " + SQLex.getMessage());
             System.out.println("SQLState: " + SQLex.getSQLState());
