@@ -20,7 +20,6 @@ public class AdminFrame extends JFrame {
     private JComboBox cb;
 
     public AdminFrame() {
-        setTitle("�����ͺ��̽� ���հ��� �ý���");
         setSize(500, 200);
         setBounds(100, 100, 494, 445);
         contentPane = new JPanel();
@@ -53,7 +52,7 @@ public class AdminFrame extends JFrame {
         getContentPane().add(searchbutton());
 
         cb = new JComboBox();
-        cb.setModel(new DefaultComboBoxModel(new String[] {"������", "��ǰ����", "��������"}));
+        cb.setModel(new DefaultComboBoxModel(new String[] {"고객정보", "��ǰ����", "��������"}));
         cb.setBounds(29, 10, 313, 21);
         cb.addActionListener(new ActionListener() {
                                  public void actionPerformed(ActionEvent e) {
@@ -85,7 +84,7 @@ public class AdminFrame extends JFrame {
         panel.add(js);
         table.setModel(dt);
 
-        JButton button = new JButton("�ֹ�����");
+        JButton button = new JButton("주문내역");
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new orderinfo(1, ""); // ������ ȣ��
@@ -100,7 +99,7 @@ public class AdminFrame extends JFrame {
 
     public JButton addbutton() {
 
-        JButton bt1 = new JButton("�߰�");
+        JButton bt1 = new JButton("추가");
         bt1.setBounds(369, 41, 97, 53);
         contentPane.add(bt1);
         bt1.addActionListener(new ActionListener() {
@@ -119,12 +118,12 @@ public class AdminFrame extends JFrame {
     }
 
     public JButton delbutton() {
-        JButton bt1 = new JButton("����");
+        JButton bt1 = new JButton("삭제");
         bt1.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
                 String[] tab = {"customer", "item", "employee"};
-                int result = JOptionPane.showConfirmDialog(null, "�����Ͻðڽ��ϱ�?", "�޼���",
+                int result = JOptionPane.showConfirmDialog(null, "삭제하시겠습니까?", "�޼���",
                     JOptionPane.OK_CANCEL_OPTION);
                 if (result == 2)
                     return;
@@ -155,7 +154,7 @@ public class AdminFrame extends JFrame {
     }
 
     public JButton editbutton() {
-        JButton bt1 = new JButton("����");
+        JButton bt1 = new JButton("수정");
         bt1.setBounds(369, 167, 97, 53);
         contentPane.add(bt1);
 
@@ -163,7 +162,7 @@ public class AdminFrame extends JFrame {
     }
 
     public JButton searchbutton() {
-        JButton bt1 = new JButton("�˻�");
+        JButton bt1 = new JButton("검색");
         bt1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 search s = new search();
@@ -191,9 +190,9 @@ public class AdminFrame extends JFrame {
 
         switch (n) {
             case 0: // 0���� ��
-                head[0] = "��ȣ";
-                head[1] = "�̸�";
-                head[2] = "�ּ�";
+                head[0] = "번호";
+                head[1] = "이름";
+                head[2] = "주소";
                 head[3] = "";
                 dt.setColumnIdentifiers(head);
                 try {

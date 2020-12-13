@@ -51,7 +51,7 @@ public class add extends JFrame {
 
         comboBox = new JComboBox();
         comboBox.setEditable(true);
-        comboBox.setModel(new DefaultComboBoxModel(new String[] {"ȸ���߰�", "��ǰ�߰�", "�����߰�"}));
+        comboBox.setModel(new DefaultComboBoxModel(new String[] {"회원추가", "상품추가", "직원추가"}));
         comboBox.setToolTipText("");
         comboBox.setBounds(51, 10, 140, 32);
         comboBox.addActionListener(new ActionListener() {

@@ -20,8 +20,7 @@ public class adminEdit extends JFrame {
     private JLabel lb3;
     private JLabel lb4;
 
-    public adminEdit(int ComboIndex, String PK) { // �޺� �ε��� 1 - ������, �ε��� 2, ��ǰ���� �ε��� 3, ����
-
+    public adminEdit(int ComboIndex, String PK) {
         setBounds(100, 100, 420, 233);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

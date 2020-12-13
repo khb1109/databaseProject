@@ -21,7 +21,7 @@ public class StartFrame extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
-        JButton bt1 = new JButton("������ ���");
+        JButton bt1 = new JButton("관리자 모드");
         bt1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 AdminFrame af = new AdminFrame();
@@ -32,7 +32,7 @@ public class StartFrame extends JFrame {
         bt1.setBounds(47, 36, 145, 54);
         contentPane.add(bt1);
 
-        JButton bt2 = new JButton("������ ���");
+        JButton bt2 = new JButton("구매자 모드");
         bt2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 customerFrame cf = new customerFrame();

@@ -30,8 +30,7 @@ public class buy extends JFrame {
     private JTextField tf_3;
     private JLabel lb_stock;
 
-    public buy(int n) // n��  item�� �ø��� ��
-    {
+    public buy(int n) {
 
         setBounds(100, 100, 450, 300);
         contentPane = new JPanel();
