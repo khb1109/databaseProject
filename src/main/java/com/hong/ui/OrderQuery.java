@@ -1,4 +1,4 @@
-package com.hong;
+package com.hong.ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,12 +6,12 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-public class orderQuery extends JFrame {
+public class OrderQuery extends JFrame {
 
     private JPanel contentPane;
     private JTextField tf;
 
-    public orderQuery() {
+    public OrderQuery() {
         setBounds(100, 100, 304, 189);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -34,7 +34,7 @@ public class orderQuery extends JFrame {
                 String name = tf.getText();
                 if (name.equals(""))
                     return;
-                new orderinfo(0, name);
+                new OrderInfoFrame(0, name);
                 setVisible(false);
             }
         });

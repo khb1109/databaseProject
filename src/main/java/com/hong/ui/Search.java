@@ -1,4 +1,4 @@
-package com.hong;
+package com.hong.ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-public class search extends JFrame {
+public class Search extends JFrame {
 
     public String q;
     public int i;
@@ -14,7 +14,7 @@ public class search extends JFrame {
     private JPanel contentPane;
     private JTextField tf;
 
-    public search() {
+    public Search() {
 
         setSize(100, 100);
         setBounds(100, 100, 380, 197);

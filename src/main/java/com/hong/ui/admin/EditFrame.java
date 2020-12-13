@@ -1,4 +1,4 @@
-package com.hong;
+package com.hong.ui.admin;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,8 +7,10 @@ import java.sql.SQLException;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-public class adminEdit extends JFrame {
-    private MyConn con;
+import com.hong.db.JdbcTemplate;
+
+public class EditFrame extends JFrame {
+    private JdbcTemplate con;
     private JPanel contentPane;
     private JTextField tf1;
     private JTextField tf2;
@@ -20,7 +22,7 @@ public class adminEdit extends JFrame {
     private JLabel lb3;
     private JLabel lb4;
 
-    public adminEdit(int ComboIndex, String PK) {
+    public EditFrame(int ComboIndex, String PK) {
         setBounds(100, 100, 420, 233);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -115,7 +117,7 @@ public class adminEdit extends JFrame {
         String[] tab = {"Customer", "item", "employee", "infoOrder"};
         lb.setText(tab[CB] + " �����ϱ�");
         String[] st = new String[3];
-        con = new MyConn();
+        con = new JdbcTemplate();
         String sql;
 
         if (CB == 1)
@@ -154,7 +156,7 @@ public class adminEdit extends JFrame {
             if (tfb.getText().equals(""))
                 return; // �������϶� �ι�° ĭ�� ��� ����
 
-        con = new MyConn();
+        con = new JdbcTemplate();
         String sql;
         String data1 = tfa.getText();
         String data2 = tfb.getText();

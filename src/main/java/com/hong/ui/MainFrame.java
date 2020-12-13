@@ -1,4 +1,4 @@
-package com.hong;
+package com.hong.ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,11 +8,14 @@ import java.awt.event.WindowEvent;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-public class StartFrame extends JFrame {
+import com.hong.ui.admin.AdminFrame;
+import com.hong.ui.customer.CustomerFrame;
+
+public class MainFrame extends JFrame {
 
     private JPanel contentPane;
 
-    public StartFrame() {
+    public MainFrame() {
         setTitle("\uBB3C\uD488\uAD00\uB9AC \uC2DC\uC2A4\uD15C");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 244, 233);
@@ -35,7 +38,7 @@ public class StartFrame extends JFrame {
         JButton bt2 = new JButton("구매자 모드");
         bt2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                customerFrame cf = new customerFrame();
+                CustomerFrame cf = new CustomerFrame();
                 setVisible(false);
                 cf.addWindowListener(new Mywin());
             }

@@ -1,4 +1,4 @@
-package com.hong;
+package com.hong.ui.customer;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,14 +11,19 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-public class customerFrame extends JFrame {
+import com.hong.db.JdbcTemplate;
+import com.hong.ui.OrderQuery;
+import com.hong.ui.Search;
+import com.hong.ui.common.AddFrame;
 
-    private MyConn con;
+public class CustomerFrame extends JFrame {
+
+    private JdbcTemplate con;
     private JPanel contentPane;
     private JTable table;
     private DefaultTableModel dt;
 
-    public customerFrame() {
+    public CustomerFrame() {
         setBounds(100, 100, 461, 390);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -45,7 +50,7 @@ public class customerFrame extends JFrame {
         JButton button_2 = new JButton("\uAC80\uC0C9");
         button_2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                search s = new search();
+                Search s = new Search();
                 s.cb.setSelectedIndex(1);
                 s.cb.setEnabled(false);
                 System.out.print(s.q);
@@ -67,7 +72,7 @@ public class customerFrame extends JFrame {
         JButton bt3 = new JButton("\uC8FC\uBB38\uB0B4\uC5ED");
         bt3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                new orderQuery();
+                new OrderQuery();
             }
         });
         bt3.setBounds(330, 262, 97, 43);
@@ -85,7 +90,7 @@ public class customerFrame extends JFrame {
 
     public void ShowTable(String sea) {
         clearTable();
-        con = new MyConn();
+        con = new JdbcTemplate();
         String[] str = new String[4];
 
         try {
@@ -112,7 +117,7 @@ public class customerFrame extends JFrame {
         public void actionPerformed(ActionEvent e) {
             int row = table.getSelectedRow();
             String st = (String)table.getValueAt(row, 0); // �̰� �ø����� ����Ű
-            buy b = new buy(Integer.parseInt(st));
+            BuyFrame b = new BuyFrame(Integer.parseInt(st));
             b.addWindowListener(new WindowAdapter() {
                 public void windowClosed(WindowEvent e) {
                     ShowTable("");
@@ -123,7 +128,7 @@ public class customerFrame extends JFrame {
 
     public class MyActionListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            add ad = new add();
+            AddFrame ad = new AddFrame();
             ad.comboBox.setVisible(false);
         }
     }

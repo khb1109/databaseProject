@@ -1,4 +1,4 @@
-package com.hong;
+package com.hong.ui.customer;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,9 +10,11 @@ import java.util.Calendar;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-public class buy extends JFrame {
+import com.hong.db.JdbcTemplate;
 
-    MyConn con;
+public class BuyFrame extends JFrame {
+
+    JdbcTemplate con;
     private JPanel contentPane;
     private JTextField tf_1;
     private JTextField tf_2;
@@ -30,7 +32,7 @@ public class buy extends JFrame {
     private JTextField tf_3;
     private JLabel lb_stock;
 
-    public buy(int n) {
+    public BuyFrame(int n) {
 
         setBounds(100, 100, 450, 300);
         contentPane = new JPanel();
@@ -151,7 +153,7 @@ public class buy extends JFrame {
         String[] str = new String[4];
         String sql = "select * from item where seriel=" + n + ";";
         System.out.println(sql);
-        con = new MyConn();
+        con = new JdbcTemplate();
         try {
             con.rs = con.st.executeQuery(sql);
             con.rs.next();

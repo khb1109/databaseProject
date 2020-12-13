@@ -1,4 +1,4 @@
-package com.hong;
+package com.hong.ui.admin;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,9 +11,14 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+import com.hong.db.JdbcTemplate;
+import com.hong.ui.OrderInfoFrame;
+import com.hong.ui.Search;
+import com.hong.ui.common.AddFrame;
+
 public class AdminFrame extends JFrame {
 
-    MyConn con = new MyConn();
+    JdbcTemplate con = new JdbcTemplate();
     private DefaultTableModel dt;
     private JPanel contentPane;
     private JTable table;
@@ -36,7 +41,7 @@ public class AdminFrame extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
                 int a = cb.getSelectedIndex();
                 String b = table.getValueAt(table.getSelectedRow(), 0).toString(); // PK�� ���ϴµ�.  ��Ʈ������ ��ȯ
-                adminEdit ae = new adminEdit(a, b);
+                EditFrame ae = new EditFrame(a, b);
                 ae.addWindowListener(new WindowAdapter() {
                     public void windowClosed(WindowEvent e) {
                         tableSetting(a, "");
@@ -87,7 +92,7 @@ public class AdminFrame extends JFrame {
         JButton button = new JButton("주문내역");
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new orderinfo(1, ""); // ������ ȣ��
+                new OrderInfoFrame(1, ""); // ������ ȣ��
             }
         });
         button.setBounds(369, 293, 97, 53);
@@ -104,7 +109,7 @@ public class AdminFrame extends JFrame {
         contentPane.add(bt1);
         bt1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                add ad = new add();
+                AddFrame ad = new AddFrame();
                 int n = cb.getSelectedIndex();
                 ad.addWindowListener(new WindowAdapter() {
                     public void windowClosed(WindowEvent e) {
@@ -132,7 +137,7 @@ public class AdminFrame extends JFrame {
                 cindex = cb.getSelectedIndex();
                 int tableIndex = table.getSelectedRow();
                 String key = (String)table.getValueAt(tableIndex, 0);
-                con = new MyConn();
+                con = new JdbcTemplate();
                 String sql;
                 if (cindex == 1)
                     sql = "delete from " + tab[cindex] + " where seriel =" + key;
@@ -165,7 +170,7 @@ public class AdminFrame extends JFrame {
         JButton bt1 = new JButton("검색");
         bt1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                search s = new search();
+                Search s = new Search();
                 s.addWindowListener(new WindowAdapter() {
                     public void windowClosed(WindowEvent e) {
                         tableSetting(s.i, s.q);

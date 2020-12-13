@@ -1,4 +1,4 @@
-package com.hong;
+package com.hong.ui;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,17 +11,20 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-public class orderinfo extends JFrame {
+import com.hong.db.JdbcTemplate;
+import com.hong.ui.admin.EditFrame;
+
+public class OrderInfoFrame extends JFrame {
 
     private JPanel contentPane;
     private JTable table;
     private DefaultTableModel dt;
-    private MyConn con;
+    private JdbcTemplate con;
     private String sql;
     private String[] str;
     private JButton bt;
 
-    public orderinfo(int n, String s) {
+    public OrderInfoFrame(int n, String s) {
         setBounds(100, 100, 1090, 513);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -58,7 +61,7 @@ public class orderinfo extends JFrame {
                 public void actionPerformed(ActionEvent e) {
                     String pk = table.getValueAt(table.getSelectedRow(), 0).toString();
                     System.out.println(pk);
-                    adminEdit ae = new adminEdit(3, pk);
+                    EditFrame ae = new EditFrame(3, pk);
                     ae.addWindowListener(new WindowAdapter() {
                         public void windowClosed(WindowEvent e) {
                             setTable("");
@@ -76,7 +79,7 @@ public class orderinfo extends JFrame {
     }
 
     public void setTable(String s) {
-        con = new MyConn();
+        con = new JdbcTemplate();
 
         int cnt = dt.getRowCount(); // ���̺� �ʱ�ȭ
         for (int i = 0; i < cnt; i++)

@@ -1,4 +1,4 @@
-package com.hong;
+package com.hong.ui.common;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,18 +7,20 @@ import java.sql.SQLException;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-public class add extends JFrame {
+import com.hong.db.JdbcTemplate;
+
+public class AddFrame extends JFrame {
 
     public JComboBox comboBox;
     String sql;
-    MyConn con = new MyConn();
+    JdbcTemplate con = new JdbcTemplate();
     private JPanel contentPane;
     private JTextField txt2;
     private JTextField txt1;
     private JTextField txt3;
     private JTextField txt4;
 
-    public add() {
+    public AddFrame() {
         setBounds(100, 100, 450, 300);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
